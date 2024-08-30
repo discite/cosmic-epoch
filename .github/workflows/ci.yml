@@ -21,6 +21,8 @@ jobs:
       volumes:
         - /:/host
     steps:
+    - name: Set parallel workers env variable to optimize times building
+      run: echo "PARALLEL_WORKERS=$(nproc)" >> $GITHUB_ENV
     - run: >
         pacman --noconfirm -Syu
         base-devel
