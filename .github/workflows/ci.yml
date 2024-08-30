@@ -21,6 +21,8 @@ jobs:
       volumes:
         - /:/host
     steps:
+    - name: Improve pararellism
+      run: echo "PARALLEL_WORKERS=$(nproc)" >> $GITHUB_ENV
     - run: >
         pacman --noconfirm -Syu
         base-devel
